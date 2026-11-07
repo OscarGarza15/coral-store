@@ -153,6 +153,8 @@ export interface Producto {
   /** Nombre de marca a mostrar; para piezas de ejemplo es "Marca Demo", nunca una marca real. */
   marcaNombre: string;
   nombre: string;
+  /** Ruta dentro de /public, nombrada por SKU. Si no hay foto, la tarjeta muestra el marcador genérico. */
+  foto?: string;
   variante?: string;
   talla?: string;
   color?: string;

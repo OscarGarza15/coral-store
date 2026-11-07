@@ -5,6 +5,9 @@ import { Header } from "@/components/Header";
 import { Sidebar, type CategoriaFiltro } from "@/components/Sidebar";
 import { ProductCard } from "@/components/ProductCard";
 import { PRODUCTOS_DEMO } from "@/lib/demo-products";
+import { PRODUCTOS_PRUEBA_FOTOS } from "@/lib/demo-products-fotos-prueba";
+
+const TODOS_LOS_PRODUCTOS = [...PRODUCTOS_PRUEBA_FOTOS, ...PRODUCTOS_DEMO];
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -12,8 +15,8 @@ export default function Home() {
   const [cartCount, setCartCount] = useState(0);
 
   const productos = useMemo(() => {
-    if (!categoria) return PRODUCTOS_DEMO;
-    return PRODUCTOS_DEMO.filter(
+    if (!categoria) return TODOS_LOS_PRODUCTOS;
+    return TODOS_LOS_PRODUCTOS.filter(
       (p) => p.departamento === categoria.departamento && p.categoriaDigito === categoria.digito
     );
   }, [categoria]);

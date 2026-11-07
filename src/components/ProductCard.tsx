@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { nombreDepartamento, enOferta, type Producto } from "@/lib/catalog";
 
 function money(n: number) {
@@ -22,6 +23,24 @@ export function ProductCard({
   return (
     <div className="flex flex-col">
       <div className={`relative aspect-[4/5] overflow-hidden rounded-xl ${tileBg}`}>
+        {producto.foto ? (
+          <Image
+            src={producto.foto}
+            alt={`${producto.marcaNombre} ${producto.nombre}`}
+            fill
+            sizes="(min-width: 1024px) 25vw, 50vw"
+            className="object-cover"
+          />
+        ) : (
+          <svg
+            viewBox="0 0 24 24"
+            className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 stroke-ink/25"
+            fill="none"
+            strokeWidth="1.2"
+          >
+            <path d="M8 4l4 2 4-2 3 3-2 3-2-1v9.4H9.5V9.1l-1.7 1L5.5 7.5l3-3z" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
         <span className="absolute left-3 top-3 rounded-full bg-white/80 px-2.5 py-1 text-[11px] font-medium text-ink">
           {nombreDepartamento(producto.departamento)}
         </span>
@@ -30,14 +49,6 @@ export function ProductCard({
             Oferta
           </span>
         )}
-        <svg
-          viewBox="0 0 24 24"
-          className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 stroke-ink/25"
-          fill="none"
-          strokeWidth="1.2"
-        >
-          <path d="M8 4l4 2 4-2 3 3-2 3-2-1v9.4H9.5V9.1l-1.7 1L5.5 7.5l3-3z" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
       </div>
 
       <div className="pt-3">
