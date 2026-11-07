@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/*
+  Identidad visual de Coral Store — tomada de la referencia que aprobó la dueña
+  (Laurenci Perfumes): crema + rosa pálido + vino, tipografía condensada para
+  títulos. Paleta fija de marca: no se adapta al modo oscuro del sistema.
+*/
+:root {
+  --bg: #fffaf6;
+  --bg-pink: #f8dde3;
+  --bg-tan: #f0e4d8;
+  --ink: #241a1c;
+  --muted: #76606b;
+  --line: #e9d7dc;
+  --accent: #4f071a;
+  --accent-hover: #671026;
+  --accent-ink: #ffffff;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-pink: var(--bg-pink);
+  --color-bg-tan: var(--bg-tan);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --font-display: var(--font-oswald);
+  --font-body: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.45;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
